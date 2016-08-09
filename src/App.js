@@ -9,6 +9,7 @@ class App extends Component {
     super(props,context);
     this.state = {
       query: '',
+      images: [],
       isLoading: true
     };
     this.handleTextChange = this.handleTextChange.bind(this);
@@ -23,8 +24,11 @@ class App extends Component {
   }
   
   handleSubmit(e){
-    this.setState({
-      isLoading: false
+    gettyHelper.getImages(this.state.query).then((images) =>{
+      this.setState({
+        isLoading: false,
+        images: images
+      });
     });
   }
   
@@ -32,7 +36,6 @@ class App extends Component {
     this.setState({
       isLoading: true
     });
-    console.log(this.state.isLoading);
   }
   
   render() {
@@ -57,8 +60,7 @@ class App extends Component {
         </div>
         <PhotoList 
           isLoading={this.state.isLoading} 
-          images={images}
-          handleHidePuppies={this.onHidePuppies}
+          images={this.state.images}
         />
       </div>
     );

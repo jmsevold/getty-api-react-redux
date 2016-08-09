@@ -11,13 +11,12 @@ const photoList = (props) => {
       <ul>
       {props.images.map((image,index) => {
         return(
-          <Photo url={image.url} key={index}/>
+          <Photo url={image.display_sizes[0].uri} key={index}/>
         );
       })}
       </ul>
-      <input type='submit' onClick={props.handleHidePuppies}/>
     </div>
   );
-}
+};
 
 export default photoList;
