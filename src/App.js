@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PhotoList from './components/PhotoList';
 import images from './images';
 import './App.css';
+import * as gettyHelper from './gettyHelper';
 
 class App extends Component {
   constructor(props,context){
@@ -25,7 +26,6 @@ class App extends Component {
     this.setState({
       isLoading: false
     });
-    console.log(this.state.isLoading);
   }
   
   handleHidePuppies(e){
