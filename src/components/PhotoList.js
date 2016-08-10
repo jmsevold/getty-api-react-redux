@@ -11,7 +11,12 @@ const photoList = (props) => {
       <ul>
       {props.images.map((image,index) => {
         return(
-          <Photo url={image.display_sizes[0].uri} key={index}/>
+          <Photo 
+            url={image.display_sizes[0].uri}
+            key={index}
+            index={index}
+            handleDeleteImage={props.handleDeleteImage}
+          />
         );
       })}
       </ul>

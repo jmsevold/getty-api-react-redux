@@ -13,6 +13,7 @@ class App extends Component {
     };
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleSubmit     = this.handleSubmit.bind(this);
+    this.handleDeleteImage = this.handleDeleteImage.bind(this);
   }
   
   handleTextChange(e){
@@ -39,6 +40,10 @@ class App extends Component {
     });
   }
   
+  handleDeleteImage(index){
+    console.log(`index ${index} is going to be removed`);
+  }
+  
   render() {
     return (
       <div className="App">
@@ -62,6 +67,7 @@ class App extends Component {
         <PhotoList 
           isLoading={this.state.isLoading} 
           images={this.state.images}
+          handleDeleteImage={this.handleDeleteImage}
         />
       </div>
     );
