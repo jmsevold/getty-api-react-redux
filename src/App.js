@@ -42,6 +42,13 @@ class App extends Component {
   
   handleDeleteImage(index){
     console.log(`index ${index} is going to be removed`);
+    let images = this.state.images;
+    let before = images.slice(0, index);
+    let after = images.slice(index + 1, images.length);
+    let result = before.concat(after);
+    this.setState({
+      images: result
+    });
   }
   
   render() {
