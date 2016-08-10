@@ -1,10 +1,14 @@
-import axios from 'axios'
+import axios from 'axios';
 
-// const API_KEY = 
+const API_KEY = 'kepbq8fac4wve7jbxkubnnms';
+
+var config = {
+  headers: {'Api-Key': API_KEY}
+};
 
 export function getImages(query){
-  return axios.get(`https://api.gettyimages.com/v3/search/images?fields=id,title,thumb,referral_destinations&sort_order=best&phrase=${query}`)
-  .then((data) => {
-    return data.images;
+  return axios.get(`https://api.gettyimages.com:443/v3/search/images?phrase=${query}`, config)
+  .then((results) => {
+    return results.data.images;
   });
 }

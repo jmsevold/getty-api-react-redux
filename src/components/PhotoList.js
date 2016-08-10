@@ -5,7 +5,7 @@ import Photo from './Photo';
 const photoList = (props) => {
   return(
     props.isLoading 
-    ? <p>No puppies yet!</p>
+    ? <p>No images yet!</p>
     :
     <div>
       <ul>

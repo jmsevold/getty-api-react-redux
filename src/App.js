@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PhotoList from './components/PhotoList';
-import images from './images';
 import './App.css';
 import * as gettyHelper from './gettyHelper';
 
@@ -25,11 +24,13 @@ class App extends Component {
   
   handleSubmit(e){
     gettyHelper.getImages(this.state.query).then((images) =>{
+      console.log(images);
       this.setState({
         isLoading: false,
         images: images
       });
-    });
+    }).catch((err) => console.log(err));
+    console.log(this.state);
   }
   
   handleHidePuppies(e){
@@ -42,7 +43,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Puppy Loader</h2>
+          <h2>Getty Images API</h2>
         </div>
         <p className="App-intro">
           
