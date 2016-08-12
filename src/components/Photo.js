@@ -4,7 +4,7 @@ const photo = (props) => {
   return(
   <div>
     <li>
-      <img src={props.url} alt="puppy"/>
+      <img src={props.url} alt="img"/>
     </li>
     <button 
       className="glyphicon glyphicon-trash"

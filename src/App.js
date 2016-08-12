@@ -15,14 +15,14 @@ class App extends Component {
     this.handleSubmit     = this.handleSubmit.bind(this);
     this.handleDeleteImage = this.handleDeleteImage.bind(this);
   }
-  
+
   handleTextChange(e){
     let query = e.target.value;
     this.setState({
       query: query
     });
   }
-  
+
   handleSubmit(e){
     gettyHelper.getImages(this.state.query).then((images) =>{
       console.log(images);
@@ -33,13 +33,9 @@ class App extends Component {
     }).catch((err) => console.log(err));
     console.log(this.state);
   }
-  
-  handleHidePuppies(e){
-    this.setState({
-      isLoading: true
-    });
-  }
-  
+
+
+
   handleDeleteImage(index){
     console.log(`index ${index} is going to be removed`);
     let images = this.state.images;
@@ -51,7 +47,7 @@ class App extends Component {
       images: result
     });
   }
-  
+
   render() {
     return (
       <div className="App">
@@ -59,9 +55,9 @@ class App extends Component {
           <h2>Getty Images API</h2>
         </div>
         <p className="App-intro">
-          
+
         </p>
-        
+
         <div className='container-fluid'>
           <input
             type="text"
@@ -72,8 +68,8 @@ class App extends Component {
             onClick={this.handleSubmit}
           />
         </div>
-        <PhotoList 
-          isLoading={this.state.isLoading} 
+        <PhotoList
+          isLoading={this.state.isLoading}
           images={this.state.images}
           handleDeleteImage={this.handleDeleteImage}
         />
