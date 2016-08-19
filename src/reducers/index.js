@@ -1,4 +1,8 @@
 import {combineReducers} from 'redux';
-import images from './gettyReducer';
+import images from './imagesReducer';
 
-const rootReducer =combineReducers({})
+const rootReducer = combineReducers({
+  images
+});
+
+export default rootReducer;

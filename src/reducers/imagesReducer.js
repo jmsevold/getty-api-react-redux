@@ -1,15 +1,13 @@
 import * as helpers from '../helpers';
 
 const initialState = {
-  query: '',
   images: [],
-  isLoading: true
 };
 
-export default function gettyReducer(state = initialState, action){
+export default function imagesReducer(state = initialState, action){
   switch(action.type){
-    case 'SUBMIT_QUERY':
-      return Object.assign({}, initialState, {images: action.images, isLoading: false});
+    case 'LOAD_IMAGES_SUCCESS':
+      return Object.assign({}, initialState, { images: action.images });
       
     case 'DELETE_IMAGE':
       const images = initialState.images;

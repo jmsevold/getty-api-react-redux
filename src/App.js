@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import PhotoList from './components/PhotoList';
 import './App.css';
 import * as gettyHelper from './gettyHelper';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import * as gettyActions from './actions/gettyActions';
 
 class App extends Component {
   constructor(props,context){
@@ -32,6 +35,7 @@ class App extends Component {
       });
     }).catch((err) => console.log(err));
     console.log(this.state);
+    // loadImages() THEN set isLoading to false
   }
 
 

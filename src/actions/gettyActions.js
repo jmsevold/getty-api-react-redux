@@ -1,7 +1,9 @@
-export function submitQuery(query){
+import * as gettyHelper from '../gettyHelper';
+
+export function loadImagesSuccess(images){
   return {
-    type: 'SUBMIT_QUERY',
-    query
+    type: 'LOAD_IMAGES_SUCCESS',
+    images
   };
 }
 
@@ -13,8 +15,12 @@ export function deleteImage(index){
 }
 
 
-/*
-  loadImages()
-    - make the call to the api
-    
-*/
+export function loadImages(query){
+  return function (dispatch) {
+    return gettyHelper.getImages(query).then((images) => {
+      dispatch(loadImagesSuccess(images));
+    }).catch((error) =>{
+      throw(error);
+    });
+  };
+}
